@@ -50,25 +50,48 @@ import { useRouter } from 'vue-router'
 import { ElNotification } from 'element-plus'
 import { getTime } from '@/utils/time.ts'
 
+const validatorPassword = (rule: any, value: any, callback: any) => {
+  if (value.length >= 5) {
+    callback()
+  } else {
+    callback(new Error('密码长度至少五位'))
+  }
+}
+const validatorUsername = (rule: any, value: any, callback: any) => {
+  if (value.length >= 5) {
+    callback()
+  } else {
+    callback(new Error('账户长度至少五位'))
+  }
+}
 let loginForms = ref()
 const rules = {
   username: [
-    { required: true, message: '用户名不能为空', trigger: 'blur' },
+    // { required: true, message: '用户名不能为空', trigger: 'blur' },
+    // {
+    //   required: true,
+    //   min: 6,
+    //   max: 10,
+    //   message: '账号长度至少为6-10位',
+    //   trigger: 'blur',
+    // },
+    //自定义规则事件
     {
-      required: true,
-      min: 6,
-      max: 10,
-      message: '账号长度至少为6-10位',
-      trigger: 'blur',
+      trigger: 'change',
+      validator: validatorUsername,
     },
   ],
   password: [
+    // {
+    //   required: true,
+    //   min: 6,
+    //   max: 15,
+    //   message: '密码长度至少为6位',
+    //   trigger: 'change',
+    // },
     {
-      required: true,
-      min: 6,
-      max: 15,
-      message: '密码长度至少为6位',
       trigger: 'change',
+      validator: validatorPassword,
     },
   ],
 }
