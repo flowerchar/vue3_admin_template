@@ -33,10 +33,10 @@
       v-if="item.children && item.children.length > 1"
       :index="item.path"
     >
+      <el-icon>
+        <component :is="item.meta.icon" />
+      </el-icon>
       <template #title>
-        <el-icon>
-          <component :is="item.meta.icon" />
-        </el-icon>
         <span>{{ item.meta.title }}</span>
       </template>
       <Menu :menu-list="item.children"></Menu>

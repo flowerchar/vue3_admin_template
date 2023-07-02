@@ -9,16 +9,7 @@ export const constantRoute = [
       icon: 'Plus',
     },
   },
-  {
-    path: '/screen',
-    component: () => import('@/views/screen/index.vue'), //src/screen/index.vue
-    name: 'Screen',
-    meta: {
-      hidden: false,
-      title: '数据大屏',
-      icon: 'Delete',
-    },
-  },
+
   {
     path: '/',
     component: () => import('@/layout/index.vue'),
@@ -39,6 +30,16 @@ export const constantRoute = [
       title: 'layout',
       hidden: false,
       icon: 'Search',
+    },
+  },
+  {
+    path: '/screen',
+    component: () => import('@/views/screen/index.vue'), //src/screen/index.vue
+    name: 'Screen',
+    meta: {
+      hidden: false,
+      title: '数据大屏',
+      icon: 'Delete',
     },
   },
   {

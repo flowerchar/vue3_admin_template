@@ -3,12 +3,18 @@
     <div class="layout_slider">
       <Logo></Logo>
       <el-scrollbar class="scrollbar">
-        <el-menu background-color="#001529" text-color="white">
+        <el-menu
+          :default-active="$route.path"
+          background-color="#001529"
+          text-color="white"
+        >
           <Menu :menuList="userStore.menuRoutes"></Menu>
         </el-menu>
       </el-scrollbar>
     </div>
-    <div class="layout_tabbar">456</div>
+    <div class="layout_tabbar">
+      <Tabbar></Tabbar>
+    </div>
     <div class="layout_main">
       <Main></Main>
     </div>
@@ -20,7 +26,10 @@ import Logo from '@/layout/logo/index.vue'
 import Menu from '@/layout/menu/index.vue'
 import useUserStore from '@/store/modules/user.ts'
 import Main from '@/layout/main/index.vue'
+import { useRoute } from 'vue-router'
+import Tabbar from '@/layout/tabbar/index.vue'
 
+let $route = useRoute()
 const userStore = useUserStore()
 </script>
 
@@ -28,7 +37,6 @@ const userStore = useUserStore()
 .layout_container {
   width: 100%;
   height: 100vh;
-  background: red;
 
   .layout_slider {
     width: $base-menu-width;
