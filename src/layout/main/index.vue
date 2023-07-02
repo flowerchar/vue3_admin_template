@@ -7,6 +7,11 @@
 </template>
 
 <script lang="ts" setup></script>
+<script lang="ts">
+export default {
+  name: 'Main',
+}
+</script>
 
 <style lang="scss" scoped>
 .fade-enter-from {

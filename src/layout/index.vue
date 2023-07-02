@@ -1,9 +1,13 @@
 <template>
+  <!--  :collapse="!!LayoutSettingStore.fold"-->
+  <!--  :class="{ fold: !!LayoutSettingStore.fold }"-->
   <div class="layout_container">
-    <div class="layout_slider">
+    <div :class="{ fold: !!LayoutSettingStore.fold }" class="layout_slider">
       <Logo></Logo>
       <el-scrollbar class="scrollbar">
         <el-menu
+          :collapse="!!LayoutSettingStore.fold"
+          :collapse-transition="false"
           :default-active="$route.path"
           background-color="#001529"
           text-color="white"
@@ -12,10 +16,10 @@
         </el-menu>
       </el-scrollbar>
     </div>
-    <div class="layout_tabbar">
+    <div :class="{ fold: !!LayoutSettingStore.fold }" class="layout_tabbar">
       <Tabbar></Tabbar>
     </div>
-    <div class="layout_main">
+    <div :class="{ fold: !!LayoutSettingStore.fold }" class="layout_main">
       <Main></Main>
     </div>
   </div>
@@ -28,9 +32,16 @@ import useUserStore from '@/store/modules/user.ts'
 import Main from '@/layout/main/index.vue'
 import { useRoute } from 'vue-router'
 import Tabbar from '@/layout/tabbar/index.vue'
+import useLayoutSettingStore from '@/store/modules/setting.ts'
 
+let LayoutSettingStore = useLayoutSettingStore()
 let $route = useRoute()
 const userStore = useUserStore()
+</script>
+<script lang="ts">
+export default {
+  name: 'Layout',
+}
 </script>
 
 <style lang="scss" scoped>
@@ -42,6 +53,11 @@ const userStore = useUserStore()
     width: $base-menu-width;
     height: 100vh;
     background: $base-menu-background;
+    transition: all 0.3s;
+
+    &.fold {
+      width: $base-menu-min-width;
+    }
 
     .scrollbar {
       width: 100%;
@@ -59,6 +75,12 @@ const userStore = useUserStore()
     height: $base-tabbar-height;
     top: 0px;
     left: $base-menu-width;
+    transition: all 0.3s;
+
+    &.fold {
+      width: calc(100vw - $base-menu-min-width);
+      left: $base-menu-min-width;
+    }
   }
 
   .layout_main {
@@ -70,6 +92,12 @@ const userStore = useUserStore()
     top: $base-tabbar-height;
     padding: 20px;
     overflow: auto;
+    transition: all 0.3s;
+
+    &.fold {
+      width: calc(100vw - $base-menu-min-width);
+      left: $base-menu-min-width;
+    }
   }
 }
 </style>

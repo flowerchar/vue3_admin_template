@@ -3,7 +3,7 @@
   <el-button circle icon="FullScreen" size="small"></el-button>
   <el-button circle icon="Setting" size="small"></el-button>
   <img
-    src="../../../public/naulogo.png"
+    src="../../../../public/naulogo.png"
     style="width: 24px; height: 24px; margin: 0px 10px"
   />
   <el-dropdown>
@@ -22,5 +22,10 @@
 </template>
 
 <script lang="ts" setup></script>
+<script lang="ts">
+export default {
+  name: 'Setting',
+}
+</script>
 
 <style lang="scss" scoped></style>
