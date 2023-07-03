@@ -23,7 +23,9 @@
     "axios": "^1.4.0",
     "element-plus": "^2.3.3",
     "fast-glob": "^3.2.12",
+    "nprogress": "0.2.0",
     "pinia": "2.0.34",
+    "progress": "^2.0.3",
     "vue": "^3.2.47",
     "vue-router": "4.1.6"
   },
