@@ -4,6 +4,7 @@ const useLayoutSettingStore = defineStore('SettingStroe', {
   state: () => {
     return {
       fold: false,
+      refsh: false,
     }
   },
 })
