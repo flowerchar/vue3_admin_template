@@ -27,9 +27,9 @@ export const constantRoute = [
       },
     ],
     meta: {
-      title: 'layout',
+      title: '',
       hidden: false,
-      icon: 'Search',
+      icon: '',
     },
   },
   {
@@ -70,6 +70,7 @@ export const constantRoute = [
       hidden: false,
       icon: 'Lock',
     },
+    redirect: '/acl/user',
     children: [
       {
         path: '/acl/user',
@@ -112,6 +113,7 @@ export const constantRoute = [
       hidden: false,
       icon: 'Goods',
     },
+    redirect: '/product/trademark',
     children: [
       {
         path: '/product/trademark',
