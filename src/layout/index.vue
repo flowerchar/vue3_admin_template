@@ -2,7 +2,7 @@
   <!--  :collapse="!!LayoutSettingStore.fold"-->
   <!--  :class="{ fold: !!LayoutSettingStore.fold }"-->
   <div class="layout_container">
-    <div :class="{ fold: !!LayoutSettingStore.fold }" class="layout_slider">
+    <div class="layout_slider">
       <Logo></Logo>
       <el-scrollbar class="scrollbar">
         <el-menu
@@ -55,9 +55,9 @@ export default {
     background: $base-menu-background;
     transition: all 0.3s;
 
-    &.fold {
-      width: $base-menu-min-width;
-    }
+    //&.fold {
+    //  width: $base-menu-min-width;
+    //}
 
     .scrollbar {
       width: 100%;
